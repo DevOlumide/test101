@@ -3,23 +3,25 @@
 pipeline{
     agent any
 
-    stages("unit test"){
-        steps{
-            echo "Running unit tests"
-        }
+    stages{
+       stage("Unit tests"){
+          
+          steps{
+            echo "Testing..."
+          }
+       }
 
-    }
+       stage("Build"){
+           steps{
+               echo "Building app..."
+           }
+       }
 
-    stages("Build"){
-        steps{
-            echo "Running build"
-        }
-    }
-
-    stages("Deploy"){
-        steps{
-          echo "Deploying to Amazon AWS"
-      }
-        
+       stage("Deploy"){
+           
+           steps{
+               echo "Deploying to DigitalOcean"
+           }
+       }
     }
 }
